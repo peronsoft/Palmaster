@@ -1,6 +1,7 @@
 package com.peronsoft.palmaster.parser;
 
 import com.peronsoft.palmaster.model.Weapon;
+import com.peronsoft.palmaster.model.WeaponNames;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class WeaponTableReaderTest {
         try {
             Weapon someWeapon = new WeaponTableReader().readFile("/home/rodrigo/dev/projects/Palmaster/src/test/resources/weapons/handaxe.csv");
             assertThat(someWeapon).isNotNull();
-            assertThat(someWeapon.getWeaponName()).isEqualToIgnoringCase("handaxe");
+            assertThat(someWeapon.getWeaponName()).isEqualToIgnoringCase(WeaponNames.HANDAXE);
             assertThat(someWeapon.getWeaponRows().size()).isEqualTo(500);
             assertThat(someWeapon.getAttack("350", "15")).isEqualTo("18EEK");
             assertThat(someWeapon.getAttack("350", "0")).isEqualTo("28EES");
