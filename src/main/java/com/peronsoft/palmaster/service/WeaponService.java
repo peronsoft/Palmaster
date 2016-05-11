@@ -14,8 +14,17 @@ public class WeaponService {
 
     private Map<String, Weapon> weapons;
 
-    public WeaponService (){
+    private static WeaponService instance = null;
+
+    private WeaponService (){
         weapons = initWeaponMap();
+    }
+
+    public static WeaponService getInstance(){
+        if(WeaponService.instance==null){
+            WeaponService.instance = new WeaponService();
+        }
+        return instance;
     }
 
     public String getValue (String weaponName, String attackRoll, String defense){

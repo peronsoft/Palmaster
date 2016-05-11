@@ -12,7 +12,7 @@ public class WeaponServiceTest {
 
     @Before
     public void setUp(){
-        service = new WeaponService();
+        service = WeaponService.getInstance();
     }
 
     @Test
