@@ -38,7 +38,7 @@ public class WeaponService {
     private Map<String, Weapon> initWeaponMap(){
         Map <String, Weapon> stringWeaponMap = Maps.newHashMap();
         try {
-            Files.walk(Paths.get("/home/rodrigo/dev/projects/Palmaster/src/main/resources/weapons")).forEach(filePath -> {
+            Files.walk(Paths.get(this.getClass().getClassLoader().getResource("weapons/").getPath())).forEach(filePath -> {
                 if (Files.isRegularFile(filePath)){
                     String filename=filePath.getFileName().toString();
                     try {
